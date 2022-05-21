@@ -9,7 +9,7 @@
 
 BST<std::string> makeTree(const char* filename) {
   BST<std::string> tree;
-  std::string temp;
+  std::string value;
   std::string str;
   std::ifstream in(filename);
   if (!in) {
