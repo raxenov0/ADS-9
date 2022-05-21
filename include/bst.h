@@ -10,7 +10,7 @@ class BST {
     T value;
     int count;
   };
- 
+
  private:
   Node* root;
   Node* addNode(Node* root, T value_element) {
@@ -23,21 +23,20 @@ class BST {
     } else {
       if (value_element > root->value) root->rightNode = addNode(root->rightNode, value_element);
       else if (value_element < root->value) root->leftNode = addNode(root->leftNode, value_element);
-      else root->count++;
+      else 
+       root->count++;
     }
     return root;
   }
   int searchNode(Node* root, T value_element) {
-    if (root == nullptr) return 0;
-    else
-    {
+    if (root == nullptr) return 0; else {
       Node* current = root;
       if (current->value == value_element) return current->count;
       else if (current->value < value_element) return searchNode(current->rightNode, value_element);
       else if (current->value > value_element) return searchNode(current->leftNode, value_element);
     }
   }
- 
+
  public:
   BST() {
     root = nullptr;
