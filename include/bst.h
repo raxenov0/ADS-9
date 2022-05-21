@@ -39,18 +39,18 @@ class BST {
     }
   }
   int heightTree(Node* root) {
-		  if (root == nullptr) {
-			  return 0;
-		  } else {
-			  int left = heightTree(root->leftNode);
-			  int right = heightTree(root->rightNode);
-			  if (right > left) {
-      return ++right;
+   if (root == nullptr) {
+     return 0;
+   } else {
+     int left = heightTree(root->leftNode);
+     int right = heightTree(root->rightNode);
+     if (right > left) {
+       return ++right;
      } else {
       return ++left;
      }
     }
-	}
+}
  public:
   BST() {
     root = nullptr;
