@@ -32,10 +32,9 @@ class BST {
     if (root == nullptr) {
      return 0;
     }
-    Node* current = root;
-    if (current->value == value_element) return current->count;
-    else if (current->value < value_element) return searchNode(current->rightNode, value_element);
-    else if (current->value > value_element) return searchNode(current->leftNode, value_element);
+    if (root->value == value_element) return root->count;
+    else if (root->value < value_element) return searchNode(root->rightNode, value_element);
+    else if (root->value > value_element) return searchNode(root->leftNode, value_element);
   }
   int heightTree(Node* root) {
     if (root == nullptr) {
