@@ -29,7 +29,7 @@ class BST {
     return root;
   }
   int searchNode(Node* root, T value_element) {
-    if (root == nullptr){
+    if (root == nullptr) {
      return 0;
     } else {
       Node* current = root;
@@ -39,18 +39,19 @@ class BST {
     }
   }
   int heightTree(Node* root) {
-   if (root == nullptr) {
+    if (root == nullptr) {
      return 0;
-   } else {
-     int left = heightTree(root->leftNode);
-     int right = heightTree(root->rightNode);
-     if (right > left) {
-       return ++right;
-     } else {
-      return ++left;
-     }
+    } else {
+      int left = heightTree(root->leftNode);
+      int right = heightTree(root->rightNode);
+      if (right > left) {
+        return ++right;
+      } else {
+       return ++left;
+      }
     }
 }
+
  public:
   BST() {
     root = nullptr;
@@ -63,6 +64,6 @@ class BST {
   }
   int depth() {
   return heightTree(root) - 1;
-	}
+  }
 };
 #endif  // INCLUDE_BST_H_
