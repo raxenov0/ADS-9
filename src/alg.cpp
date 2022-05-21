@@ -15,14 +15,14 @@ BST<std::string> makeTree(const char* filename) {
   if (!in) {
     std::cout << "File error!" << std::endl;
   }
-  while (getline(in, str, ' ')) {
-    transform(str.begin(), str.end(), str.begin(), tolower);
-    for (int i = 0; i < str.length(); i++) {
-      if (str[i] == '\0') break;
-      else if (str[i] != '\n' && str[i] != ' ') temp += str[i];
-    }
-    tree.addNode_(temp);
-    temp = "";
+ while (!in.eof()) {
+   while (true) {
+     char temp = in.get();
+     if ((temp >= 65 && temp <= 90) || (temp >= 97 && temp <= 122)) value += tolower(temp);
+     else break;
+   }
+   tree.addNode_(value);
+   value = "";
   }
   return tree;
 }
