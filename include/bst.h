@@ -29,7 +29,9 @@ class BST {
     return root;
   }
   int searchNode(Node* root, T value_element) {
-    if (root == nullptr) return 0;
+    if (root == nullptr) {
+     return 0;
+    }
     Node* current = root;
     if (current->value == value_element) return current->count;
     else if (current->value < value_element) return searchNode(current->rightNode, value_element);
