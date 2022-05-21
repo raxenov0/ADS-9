@@ -23,20 +23,34 @@ class BST {
     } else {
       if (value_element > root->value) root->rightNode = addNode(root->rightNode, value_element);
       else if (value_element < root->value) root->leftNode = addNode(root->leftNode, value_element);
-      else 
+      else
        root->count++;
     }
     return root;
   }
   int searchNode(Node* root, T value_element) {
-    if (root == nullptr) return 0; else {
+    if (root == nullptr){
+     return 0;
+    } else {
       Node* current = root;
       if (current->value == value_element) return current->count;
       else if (current->value < value_element) return searchNode(current->rightNode, value_element);
       else if (current->value > value_element) return searchNode(current->leftNode, value_element);
     }
   }
-
+  int heightTree(Node* root) {
+		  if (root == nullptr) {
+			  return 0;
+		  } else {
+			  int left = heightTree(root->leftNode);
+			  int right = heightTree(root->rightNode);
+			  if (right > left) {
+      return ++right;
+     } else {
+      return ++left;
+     }
+    }
+	}
  public:
   BST() {
     root = nullptr;
@@ -44,8 +58,11 @@ class BST {
   void addNode_(T value_element) {
     root = addNode(root, value_element);
   }
-  int searchNode_(T value_element) {
+  int search(T value_element) {
     return searchNode(root, value_element);
   }
+  int depth() {
+  return heightTree(root) - 1;
+	}
 };
 #endif  // INCLUDE_BST_H_
