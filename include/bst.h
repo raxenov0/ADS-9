@@ -3,14 +3,15 @@
 #define INCLUDE_BST_H_
 template <typename T>
 class BST {
-public:
+ public:
   struct Node {
     Node* leftNode;
     Node* rightNode;
     T value;
     int count;
   };
-private:
+ 
+ private:
   Node* root;
   Node* addNode(Node* root, T value_element) {
     if (root == nullptr) {
@@ -27,15 +28,17 @@ private:
     return root;
   }
   int searchNode(Node* root, T value_element) {
-    if (root == nullptr) return 0; 
-    else {
+    if (root == nullptr) return 0;
+    else
+    {
       Node* current = root;
       if (current->value == value_element) return current->count;
       else if (current->value < value_element) return searchNode(current->rightNode, value_element);
       else if (current->value > value_element) return searchNode(current->leftNode, value_element);
     }
   }
-public:
+ 
+ public:
   BST() {
     root = nullptr;
   }
