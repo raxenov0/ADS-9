@@ -31,10 +31,13 @@ class BST {
   int searchNode(Node* root, T value_element) {
     if (root == nullptr) {
      return 0;
+    } else if (root->value == value_element) {
+       return root->count;
+    } else if (root->value < value_element) {
+         return searchNode(root->rightNode, value_element);
+    } else if (root->value > value_element) {
+     return searchNode(root->leftNode, value_element);
     }
-    if (root->value == value_element) return root->count;
-    else if (root->value < value_element) return searchNode(root->rightNode, value_element);
-    else if (root->value > value_element) return searchNode(root->leftNode, value_element);
   }
   int heightTree(Node* root) {
     if (root == nullptr) {
